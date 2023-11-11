@@ -16,6 +16,8 @@
     --malachite-950: #0a2a09;
     --body-bg: #f2f2f2;
 
+    --rounded-sm: .325rem;
+
 }
 
 /* apply a natural box layout model to all elements, but allowing components to change */
@@ -54,4 +56,60 @@ input, textarea, button, select{
     display: grid;
     min-height: 100vh;
     place-items: center;
+}
+.steps{
+    display: grid;
+    row-gap: 3rem;
+}
+/* Steps */
+.steps__circles{
+    display: flex;
+    column-gap: 5rem;
+    justify-content: center;
+    position: relative;
+}
+.steps__num{
+    --color-step: #c1c1c1;
+    --sizes-circle: 40px;
+    height: var(--sizes-circle);
+    width: var(--sizes-circle);
+    border: 3px solid var(--color-step);
+    background-color: white;
+    margin-bottom: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--color-step);
+    font-weight: 500;
+}
+.steps__num::after{
+    content: '';
+    position: absolute;
+    left: var(--sizes-circle);
+    height: 3px;
+    width: calc(100% - var(--sizes-circle) * 2);
+    background-color: var(--color-step);
+    z-index: -1;
+}
+.steps__num--active{
+    border: 3px solid var(--malachite-500);
+    color: var(--malachite-500);
+}
+.steps__buttons{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+.steps__btn{
+    border: none;
+    background-color: var(--malachite-300);
+    color: var(--malachite-900);
+    padding: .5rem 1rem;
+    border-radius: var(--rounded-sm);
+    min-width: 100px;
+    font-weight: 500;
+}
+.steps__btn:hover{
+    cursor: pointer;
+    background-color: var(--malachite-500);
 }
