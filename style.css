@@ -113,3 +113,12 @@ input, textarea, button, select{
     cursor: pointer;
     background-color: var(--malachite-500);
 }
+.steps__btn--disabled{
+    background-color: var(--malachite-100);
+    color: var(--malachite-300);
+}
+.steps__btn--disabled:hover{
+    cursor: not-allowed;
+    background-color: var(--malachite-100);
+    color: var(--malachite-300);
+}

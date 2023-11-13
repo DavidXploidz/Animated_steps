@@ -6,6 +6,7 @@ let counter = 1;
 const numberSteps = 4;
 
 document.addEventListener('DOMContentLoaded', () => {
+    comprobarFirstStep();
     comprobarCounter();
 });
 
@@ -14,8 +15,9 @@ button_prev.addEventListener('click', () => {
         return;
     }
     counter--;
-    console.log(counter);
     comprobarCounter();
+    comprobarFirstStep();
+    comprobarLastStep();
 });
 
 button_next.addEventListener('click', () => {
@@ -23,8 +25,9 @@ button_next.addEventListener('click', () => {
         return;
     }
     counter++;
-    console.log(counter);
     comprobarCounter();
+    comprobarFirstStep();
+    comprobarLastStep();
 });
 
 const comprobarCounter = () => {
@@ -38,4 +41,24 @@ const comprobarCounter = () => {
             step.classList.remove('steps__num--active');
         }
     });
+}
+
+const comprobarFirstStep = () => {
+    if(counter === 1){
+        button_prev.classList.add('steps__btn--disabled');
+        button_prev.disabled = true;
+    }else{
+        button_prev.classList.remove('steps__btn--disabled');
+        button_prev.disabled = false;
+    }
+}
+
+const comprobarLastStep = () => {
+    if(counter >= numberSteps){
+        button_next.classList.add('steps__btn--disabled');
+        button_next.disabled = true;
+    }else{
+        button_next.classList.remove('steps__btn--disabled');
+        button_next.disabled = false;
+    }
 }
