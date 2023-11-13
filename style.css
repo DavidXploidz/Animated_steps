@@ -17,9 +17,7 @@
     --body-bg: #f2f2f2;
 
     --rounded-sm: .325rem;
-
 }
-
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
@@ -64,13 +62,21 @@ input, textarea, button, select{
 /* Steps */
 .steps__circles{
     display: flex;
-    column-gap: 5rem;
+    flex-direction: column;
+    gap: 5rem;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+@media (min-width: 768px){ 
+    .steps__circles{
+        flex-direction: row;
+    }
 }
 .steps__num{
     --color-step: #c1c1c1;
     --sizes-circle: 40px;
+    --transition-duration: 200ms;
     height: var(--sizes-circle);
     width: var(--sizes-circle);
     border: 3px solid var(--color-step);
@@ -81,15 +87,22 @@ input, textarea, button, select{
     border-radius: 50%;
     color: var(--color-step);
     font-weight: 500;
+    transition: all var(--transition-duration) ease-in-out;
 }
 .steps__num::after{
     content: '';
     position: absolute;
-    left: var(--sizes-circle);
-    height: 3px;
-    width: calc(100% - var(--sizes-circle) * 2);
+    width: 3px;
+    height: calc(100% - var(--sizes-circle) * 2);
     background-color: var(--color-step);
     z-index: -1;
+}
+@media (min-width: 768px){ 
+    .steps__num::after{
+        left: var(--sizes-circle);
+        height: 3px;
+        width: calc(100% - var(--sizes-circle) * 2);
+    }
 }
 .steps__num--active{
     border: 3px solid var(--malachite-500);
@@ -103,7 +116,7 @@ input, textarea, button, select{
 .steps__btn{
     border: none;
     background-color: var(--malachite-300);
-    color: var(--malachite-900);
+    color: var(--malachite-700);
     padding: .5rem 1rem;
     border-radius: var(--rounded-sm);
     min-width: 100px;

@@ -1,9 +1,10 @@
 // Globals
 const button_prev = document.querySelector('#prev');
 const button_next = document.querySelector('#next');
+const nums_steps = document.querySelectorAll('.steps__num').length;
 
 let counter = 1;
-const numberSteps = 4;
+const numberSteps = nums_steps;
 
 document.addEventListener('DOMContentLoaded', () => {
     comprobarFirstStep();
