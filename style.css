@@ -121,6 +121,7 @@ input, textarea, button, select{
     border-radius: var(--rounded-sm);
     min-width: 100px;
     font-weight: 500;
+    transition: background-color 200ms ease-in-out;
 }
 .steps__btn:hover{
     cursor: pointer;
@@ -134,4 +135,10 @@ input, textarea, button, select{
     cursor: not-allowed;
     background-color: var(--malachite-100);
     color: var(--malachite-300);
+}
+.steps__title{
+    font-size: 2.2rem;
+    text-align: center;
+    color: var(--malachite-800);
+    font-weight: 600;
 }
